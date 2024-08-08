@@ -14,13 +14,20 @@
     @php
         $message = 'this is just testing';
     @endphp
-    <x-alert type="success" message="{{ $message }}"></x-alert>
+    {{-- <x-alert type="success" message="{{ $message }}"></x-alert>
     <x-alert type="success" :message="$message"></x-alert>
     <x-alert type="success" :$message></x-alert>
     <x-alert type="danger" message="Error"></x-alert>
     <x-alert type="info" message="Info"></x-alert>
-    <x-alert type="warning" message="Info"></x-alert>
-    <x-alert></x-alert>
+    <x-alert type="warning" message="Info"></x-alert> --}}
+    <x-alert type="danger">
+        <x-slot name="title">
+            Heading Goes Here
+        </x-slot>
+        <p class="mb-0">Lorem ipsum dolor sit amet.
+            {{ $component->link('Just Testing', 'https://www.google.com/') }}
+        </p>
+    </x-alert>
 </body>
 
 </html>
